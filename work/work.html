@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nav & Carousel --by Peng</title>
+
+    <link rel="shortcut icon" href="../main/head.jpg">
+    <link rel="stylesheet" href="./nav.css">
+    <link rel="stylesheet" href="./carousel.css">
+</head>
+<body>
+    <div class="initial_bg">
+        <nav><!--导航栏模块-->
+            <div class="discription"><!--左端文字-->
+                Work-<span>by Peng</span>
+            </div>
+
+            <ul><!--右端ul-->
+                <div class="home"><a href="../main/index.html">Home</a></div>
+
+                <li class="nav_li"><span>Learn</span>
+                    <ul class="son_ul">
+                        <li><a href="https://www.w3school.com.cn/" target="_blank">W3School</a></li>
+                        <li><a href="https://www.runoob.com/" target="_blank">Runoob</a></li>
+                        <li><a href="https://www.csdn.net/" target="_blank">CSDN</a></li>
+                        <li><a href="https://github.com/" target="_blank">GitHub</a></li>
+                        <li><a href="https://www.icourse163.org/" target="_blank">MOOC</a></li>
+                        <li><a href="https://www.zhihu.com/" target="_blank">知乎</a></li>
+                        <li><a href="https://www.bilibili.com/" target="_blank">bilibili</a></li>
+                    </ul>
+                </li>
+                <li class="nav_li"><a href="https://igem.org/" target="_blank">iGEM</a>
+                    <ul class="son_ul">
+                        <li><a href="https://old.igem.org/Team_List" target="_blank">TeamList</a></li>
+                        <li id="hzau"><span>HZAU</span>
+                            <ul><!--二级下拉栏hzau-->
+                                <li><a href="https://2022.igem.wiki/hzau-china/" target="_blank">2022</a></li>
+                                <li><a href="https://2021.igem.org/Team:HZAU-China" target="_blank">2021</a></li>
+                                <li><a href="https://2020.igem.org/Team:HZAU-China" target="_blank">2020</a></li>
+                                <li><a href="https://2019.igem.org/Team:HZAU-China" target="_blank">2019</a></li>
+                            </ul>
+                        </li>
+                        <li id="results"><span>Results</span><!--二级下拉栏results-->
+                            <ul>
+                                <li><a href="https://jamboree.igem.org/2022/results/finalists" target="_blank">2022</a></li>
+                                <li><a href="https://jamboree.igem.org/2021/results" target="_blank">2021</a></li>
+                                <li><a href="https://2020.igem.org/Competition/Results" target="_blank">2020</a></li>
+                                <li><a href="https://2019.igem.org/Competition/Results" target="_blank">2019</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav_li"><a href="http://www.hzau.edu.cn/" target="_blank">华农</a>
+                    <ul class="son_ul">
+                        <li><a href="http://www.hzau.edu.cn/xxgk/yxsz.htm" target="_blank">学院</a></li>
+                        <li><a href="https://portal-paas.hzau.edu.cn/main.html#/Index" target="_blank">信息门户</a></li>
+                        <li><a href="http://lib.hzau.edu.cn/" target="_blank">图书馆</a></li>
+                    </ul>
+                </li>
+
+                <div class="slider"> </div>
+            </ul>
+        </nav>
+
+        <div class="carousel"><!--轮播图模块-->
+            <!-- 虚化背景 -->
+            <div class="blur"></div>
+
+            <div class="carousel_bg"><!--放置图片的底层盒子-->
+                <!-- 图片 -->
+                <div class="pics">
+                    <a class="img_link" href="https://www.icourse163.org/topics/bigdata_w/?mocInLoc=pc_sy_banner_4&locRefId=160983&outVendor=zw_mooc_pcbanner4&Pdt=Moc.web&landingPageReport=false" target="_blank">
+                        <img src="./images/image1.png" alt="image1" class="image">
+                    </a>
+                </div>
+
+                <!--分页，即图片下的切换小按钮,里面的小圆点数量通过js动态添加-->
+                <div class="pagination">
+                    <!--  <div class="dian"></div>
+                     <div class="dian check"></div>      -->          
+                </div>
+
+                <!-- 左右切换按钮 -->
+                <div class="left_bt"><span class="anniu"></span></div>
+                <div class="right_bt"><span class="anniu"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./carousel.js"></script>
+</body>
+</html>

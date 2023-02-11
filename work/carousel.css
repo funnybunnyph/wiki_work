@@ -1,0 +1,124 @@
+/* 父盒子初始化 */
+.carousel{
+    position: relative;
+
+    top: 4%;
+    height: 432px;
+    width: 100%;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* 虚化背景 */
+.blur{
+    position: absolute;
+    top:-50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url(./images/image1.png);
+    background-size:contain;/*size设为contain是因为测试下来比较好看*/
+
+    filter: blur(25px);/*使用高斯模糊达到虚化效果（不用ps了）*/
+}
+
+.carousel_bg{
+    position: relative;
+
+    left: 50%;
+    transform: translateX(-50%);/*此两行为设置图片居中*/
+
+    width: 100%;
+    height: 100%;
+    max-width: 931.2px;
+}
+
+.pics{
+    width: 100%;
+    height: 100%;
+}
+
+.pics img{
+    width: 100%;
+    height: 100%;
+
+    object-fit:cover;
+}
+
+.pagination{
+    position: absolute;
+    bottom: 10px;
+    height: 30px;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pagination > .dian{
+    margin: 3px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px rgb(255,254,254) solid;
+}
+
+.pagination > .dian:hover{
+    background-color: rgb(255,254,254);
+    cursor: pointer;
+}
+
+.left_bt,.right_bt{
+    position: absolute;
+    top: 45%;
+    width: 40px;
+    height: 60px;
+    background-color: rgba(82, 81, 81,.2);
+    border-radius: 20%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.left_bt:hover,.right_bt:hover{
+    background-color: rgba(200, 214, 229,.2);
+}
+
+.left_bt{
+    left: -3rem;
+}
+
+.right_bt{
+    right: -3rem;
+}
+
+.anniu{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    user-select: none;
+    transition: all 0.3s;
+}
+
+.animation{
+    animation: danrudanchu 5s linear infinite;
+}
+
+@keyframes danrudanchu{
+    0%,100%{
+        opacity: .2;
+        backdrop-filter: blur(10px);
+    }
+
+    30%,80%{
+        opacity: 1;
+        backdrop-filter: blur(0);
+    }
+}
+
+.check{
+    background-color: rgb(255,254,254);
+}

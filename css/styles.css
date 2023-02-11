@@ -1,0 +1,285 @@
+/* 初始化 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    list-style: none;
+    overflow: hidden;/*设置hidden以避免后续inner150%时撑开页面*/
+}
+
+.initial_bg{
+    /* 子绝父相 */
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    
+    /* 使用linear-gradient样式设置左下——右上线性渐变的背景色 */
+    background: linear-gradient(45deg,#1244d9,#00a8ff);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 正中间文字 */
+.txt{
+    color: #fff;
+    font-size: 5rem;
+    text-transform: uppercase;
+    line-height: 70px;
+}
+
+.txt span{
+    display: block;
+    float: right;
+    text-transform:capitalize;
+    font-family: cursive;
+    font-size: 3rem;
+}
+
+.txt > span > i{
+    font-size: 2.5rem;
+    text-transform: lowercase;
+}
+
+/* 水滴效果 */
+.water{
+    position: absolute;
+    top:5%;
+    width: 250px;
+    height: 250px;
+    border-radius: 34% 66% 50% 50% / 38% 41% 59% 62% ;
+    box-shadow: inset 10px 20px 30px rgba(0, 0, 0, 0.5),/*一层内阴影*/
+                10px 10px 20px rgba(0, 0, 0, 0.3),/*两层外阴影加右下一层白色内阴影,这样下来就有水滴视觉效果了*/
+                15px 15px 30px rgba(0, 0, 0, 0.05),
+                inset -10px -10px 12px rgba(255, 255, 255, 0.8);
+    animation: water_action 5s linear infinite alternate;
+}
+
+.water::before{/*通过before伪类为水滴施加一个白点,看起来更真实*/
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 15px;
+    top:50px;
+    left:25%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 53% 47% 36% 64% / 49% 65% 35% 51% ;
+    animation: whitedot1 5s ease-in-out infinite alternate;
+}
+
+.water::after{/*第二个白点*/
+    position: absolute;
+    content: '';
+    width: 8px;
+    height: 8px;
+    top:50px;
+    left:15%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius:100%;
+    animation: whitedot2 5s ease-in-out infinite alternate;
+}
+
+@keyframes water_action{/*关键帧为水滴施加动效*/
+    25%{
+        border-radius: 50% 50% 44% 56% / 21% 47% 53% 79% ;
+    }
+
+    75%{
+        border-radius: 53% 47% 48% 52% / 34% 49% 51% 66% ;
+    }
+
+    100%{
+        border-radius: 34% 66% 39% 61% / 34% 49% 51% 66% ;
+    }
+}
+
+@keyframes whitedot1{/*关键帧为白点施加动效*/
+    25%{
+        top:49px;
+        left:24.5%;
+    }
+
+    75%{
+        top:51px;
+        left:25.3%;
+    }
+
+    100%{
+        top:50px;
+        left: 25%;
+    }
+}
+
+@keyframes whitedot2{/*关键帧为白点施加动效*/
+    25%{
+        top:49px;
+        left:14.5%;
+    }
+
+    75%{
+        top:51px;
+        left:15.3%;
+    }
+
+    100%{
+        top:50px;
+        left: 15%;
+    }
+}
+
+/* menu包含cross与options */
+.menu{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* cross包含两个stick */
+.cross{
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    top:0;
+    right:0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    z-index: 3;
+
+    cursor: pointer;
+}
+
+.inner{
+    position: absolute;
+    width: 5rem;
+    height: 5rem;
+    /* background-color: #c7ecee; */
+    background: linear-gradient(45deg,#76e9ef,#c7ecee);
+    top:0;
+    right:0;
+    border-bottom-left-radius: 100%;
+    transition: all 0.5s ease-in-out;
+}
+
+.stick1{
+    position: relative;
+    width: 2.5rem;
+    height: 0.4rem;
+    background-color: #95a5a6;
+    border-radius: 25px;
+    transform:translate(0.6rem,-1rem);
+    transition: all 0.25s ease-in-out;
+}
+
+.stick2{
+    position: relative;
+    width: 1.5rem;
+    height: 0.4rem;
+    background-color: #95a5a6;
+    border-radius: 25px;
+    transform: translate(0.8rem,-0.5rem);
+    transition: all 0.25s ease-in-out;
+}
+
+.options{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out 0.15s;
+    z-index: 2;
+
+    opacity: 0;
+    pointer-events: none;/*使用opacity透明度+pointer-events实现初始页面隐形防止点击
+                            之所以不用display:none实现相同效果是因为切换页面transition无法生效*/
+}
+
+.options ul{
+    box-shadow: 2px 5px 15px rgba(0,0,0,0.7);
+    border-radius: 20px;
+}
+
+.options li{
+    text-align: center;
+    width: 20rem;
+    height: 5rem;
+}
+.options li:not(:last-of-type){
+    border-bottom: 1px black solid;
+}
+
+/* 滑块--随鼠标移动实现滑动背景效果 */
+.slider{
+    position: absolute;
+    display: none;
+    width: 20rem;
+    height: 5rem;
+    background-color: #7f8fa6;
+
+    bottom:20.8rem;
+    z-index: -999;
+
+    transition: all 0.15s ease-in-out;
+}
+
+.options li:nth-last-of-type(2):hover ~ .slider{
+    display: block;
+}
+
+.options li:first-of-type:hover ~ .slider{
+    display: block;
+    bottom:25.8rem;
+    border-radius: 20px 20px 0 0;
+}
+
+.options li:last-of-type:hover ~ .slider{
+    display: block;
+    bottom:15.8rem;
+    border-radius: 0 0 20px 20px;
+}
+/* 滑块 */
+
+.options a{
+    text-decoration: none;
+    line-height: 10vh;
+    font-size: 30px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.options a:hover{
+    color: #c23616;
+}
+
+/* 这里使用toggle方法+通过js为cross添加open类名控制的方法 */
+.cross.open + .inner{
+    width: 150%;
+    height: 150%;
+    border-bottom-left-radius: 100%;
+}
+
+.cross.open ~ .options{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.cross.open > .stick1{/*两个stick分别相向旋转45deg,并且宽度变为相同以实现"X"的样式*/
+    transform: rotate(45deg);
+    width: 3.5rem;
+}
+
+.cross.open > .stick2{
+    transform: rotate(-45deg);
+    width: 3.5rem;
+}

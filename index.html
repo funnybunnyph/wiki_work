@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wiki作业_彭豪</title>
+    
+    <link rel="shortcut icon" href="./head.jpg">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <!-- 主页最外层采用汉堡模型——点击右上角后类似掀开顶层的动画效果 -->
+    <div class="initial_bg">
+        <!-- 主页中间设计了一个水滴效果 -->
+        <div class="water"></div>     
+
+        <!-- 主页正中间文字 -->
+        <div class="txt">Wiki Work<br><span>——<i>by </i>Peng</span></div>
+        
+        <!-- menu块包含右上角cross块和正中间列表options块 -->
+        <div class="menu">
+            <div class="cross">
+                <!-- cross中通过2个stick实现切换动画 -->
+                <span class="stick1"></span>
+                <span class="stick2"></span>
+            </div>
+
+            <!-- inner为初始背景右上角及切换后的页面背景 -->
+            <div class="inner"></div>
+
+            <!-- options为切换后页面的中间表格 -->
+            <div class="options">
+                <ul>
+                    <li><a href="./work/work.html">Nav&Carousel</a></li>
+                    <li><a href="#">Note</a></li>
+                    <li><a href="#">About</a></li>
+                    <div class="slider"> </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/scripts.js"></script>
+</body>
+</html>
